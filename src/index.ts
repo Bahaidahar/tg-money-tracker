@@ -16,6 +16,12 @@ await bot.api.setMyCommands([
   { command: "help", description: "Справка по командам" },
 ]);
 
+const port = process.env.PORT || 3000;
+Bun.serve({
+  port,
+  fetch: () => new Response("OK"),
+});
+
 bot.start({
   onStart: () => console.log("Bot is running..."),
 });
